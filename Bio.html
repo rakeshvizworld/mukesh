@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vunnam Mukesh Chowdary - Biodata</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .biodata-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .photo-section {
+            text-align: center;
+        }
+        
+        .photo-frame {
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            padding: 6px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-frame:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+        }
+        
+        .details-section {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .section h3::before {
+            content: '●';
+            color: #3498db;
+            font-size: 1.5em;
+        }
+        
+        .detail-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .detail-row {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ecf0f1;
+            align-items: center;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #34495e;
+            font-size: 0.95em;
+        }
+        
+        .value {
+            color: #2c3e50;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .profession-highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0 -30px -30px -30px;
+            padding: 35px 30px;
+            text-align: center;
+        }
+        
+        .contact-section h3 {
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            font-weight: 300;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.2s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .contact-item h4 {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+        
+        .contact-item p {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .decorative-border {
+            height: 5px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c, #9b59b6, #3498db, #1abc9c);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 25px;
+            }
+            
+            .photo-frame div {
+                width: 250px !important;
+                height: 320px !important;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .detail-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .contact-section {
+                margin: 0 -20px -20px -20px;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="biodata-container">
+        <div class="decorative-border"></div>
+        
+        <div class="header">
+            <h1>Vunnam Mukesh Chowdary</h1>
+            <p>Software Engineer • Kurnool</p>
+        </div>
+        
+        <div class="content">
+            <div class="photo-section">
+                <div class="photo-frame">
+                    <img class="photo" src="mukesh-photo.jpeg" alt="Mukesh Chowdary" style="width: 280px; height: 350px; object-fit: cover; border-radius: 16px; display: block;">
+                </div>
+            </div>
+            
+            <div class="details-section">
+                <div class="section">
+                    <h3>Personal Details</h3>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="label">Full Name</div>
+                            <div class="value">Vunnam Mukesh Chowdary</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Date of Birth</div>
+                            <div class="value">29 December 1996</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Height</div>
+                            <div class="value">5' 7"</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Caste</div>
+                            <div class="value"><span class="highlight">Kamma (Modikallu)</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Professional Details</h3>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="label">Education</div>
+                            <div class="value">B.Tech in Electrical & Electronics Engineering</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Profession</div>
+                            <div class="value"><span class="profession-highlight">Senior Software Engineer</span></div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Annual Salary</div>
+                            <div class="value">₹12 Lakhs per Annum</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Family Background</h3>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="label">Father</div>
+                            <div class="value">Vunnam Jaya Chandra Chowdary</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Mother</div>
+                            <div class="value">Vunnam Sujatha</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Sibling</div>
+                            <div class="value">Vunnam Rakesh Chowdary<br><small>(AI Engineer, Vizworld, Minnesota, USA)</small></div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Address</div>
+                            <div class="value">H No: 45/142-70-TR-SF-201, Thirumala Residency, Veenus Colony, Near V.R Colony, Kurnool</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Horoscope Details</h3>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="label">Birth Place</div>
+                            <div class="value">Guntakal, Anantapur</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Gothram</div>
+                            <div class="value"><span class="highlight">Ramchandra</span></div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Rasi</div>
+                            <div class="value">Simha Rashi (Leo)</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="label">Nakshatram</div>
+                            <div class="value">Makha</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h3>Contact Information</h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Father's Contact</h4>
+                    <p>+91 99480 89415</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Mother's Contact</h4>
+                    <p>+91 97051 77553</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
